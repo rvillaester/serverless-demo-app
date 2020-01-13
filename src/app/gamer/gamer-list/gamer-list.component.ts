@@ -26,6 +26,8 @@ export class GamerListComponent implements OnInit {
   }
 
   onDelete(index: number, gamer: Gamer){
+    console.log(gamer);
+    console.log('gamer');
     this.gamerService.deleteGamer(index, gamer);
   }
 

@@ -3,9 +3,9 @@ import { Gamer } from './gamer.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
-const ADD_GAMER = 'xxxxxx';
-const SEARCH_GAMER = 'xxxxxx';
-const DELETE_GAMER = 'xxxxxx';
+const ADD_GAMER = 'https://e6sz6nxzwd.execute-api.ap-southeast-1.amazonaws.com/dev/add-gamer';
+const SEARCH_GAMER = 'https://e6sz6nxzwd.execute-api.ap-southeast-1.amazonaws.com/dev/search-gamer';
+const DELETE_GAMER = 'https://e6sz6nxzwd.execute-api.ap-southeast-1.amazonaws.com/dev/delete-gamer';
 
 @Injectable()
 export class GamerService{
@@ -35,7 +35,8 @@ export class GamerService{
     }
 
     deleteGamer(index: number, gamer: Gamer){
-        this.httpClient.post<Gamer>(DELETE_GAMER, gamer)
+        console.log(gamer);
+        this.httpClient.post<Gamer>(DELETE_GAMER, gamer.id)
             .subscribe(
                 (data: any) => {
                     this.gamers.splice(index, 1);
