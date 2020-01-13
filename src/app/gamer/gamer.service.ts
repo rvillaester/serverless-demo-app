@@ -3,9 +3,9 @@ import { Gamer } from './gamer.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
-const ADD_GAMER = 'https://e6sz6nxzwd.execute-api.ap-southeast-1.amazonaws.com/dev/add-gamer';
-const SEARCH_GAMER = 'https://e6sz6nxzwd.execute-api.ap-southeast-1.amazonaws.com/dev/search-gamer';
-const DELETE_GAMER = 'https://e6sz6nxzwd.execute-api.ap-southeast-1.amazonaws.com/dev/delete-gamer';
+const ADD_GAMER = 'xxxx';
+const SEARCH_GAMER = 'xxxx';
+const DELETE_GAMER = 'xxx';
 
 @Injectable()
 export class GamerService{
