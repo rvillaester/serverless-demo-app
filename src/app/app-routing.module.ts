@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ActionComponent } from './action/action.component';
-import { AddGamerComponent } from './gamer/addGamer/add-gamer.component';
+import { AddGamerComponent } from './gamer/add-gamer/add-gamer.component';
 import { SearchGamerComponent } from './gamer/search-gamer/search-gamer.component';
 
 

@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ActionComponent } from './action/action.component';
-import { AddGamerComponent } from './gamer/addGamer/add-gamer.component';
+import { AddGamerComponent } from './gamer/add-gamer/add-gamer.component';
 import { SearchGamerComponent } from './gamer/search-gamer/search-gamer.component';
 import { GamerService } from './gamer/gamer.service';
+import { GamerListComponent } from './gamer/gamer-list/gamer-list.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GamerService } from './gamer/gamer.service';
     ActionComponent,
     AddGamerComponent,
     SearchGamerComponent,
+    GamerListComponent
   ],
   imports: [
     BrowserModule,

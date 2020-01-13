@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <tr>
+    <th>Id</th>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let gamer of gamers; let i = index">
+    <td>{{ gamer.id }}</td>
+    <td>{{ gamer.username }}</td>
+    <td>{{ gamer.name  }}</td>
+    <td> 
+      <div class="btn-toolbar"> 
+        <button class="btn btn-primary" (click)="onViewDetails(gamer)">View</button> 
+        <button class="btn btn-danger" (click)="onDelete(i, gmaer)">Delete</button> 
+      </div>
+    </td>
+  </tr>
+</table>
