@@ -17,12 +17,12 @@ export class AddGamerComponent implements OnInit {
     private router: Router, private gamerService: GamerService) { }
 
   ngOnInit() {
-    this.model = new Gamer('', '', '', '', '');
+    this.model = new Gamer('', '', '', '', '', '');
   }
 
   onSubmit(form: NgForm){
     const value = form.value;
-    this.model = new Gamer('', value.username, value.name, value.email, value.gender);
+    this.model = new Gamer('', value.username, value.name, value.email, value.gender, '');
     this.gamerService.addGamer(this.model);
     this.router.navigate(['']);
   }

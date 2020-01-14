@@ -1,0 +1,41 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Gamer Details</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 " align="center"> 
+          <img alt="User Pic" [src]="gamer.base64EncodedAvatar" class="img-circle img-responsive">
+          <h6>Upload a different photo...</h6>
+          <input type="file" class="text-center center-block file-upload" (change)="onImageChange($event)">
+        </div>
+        <div class=" col-md-9 col-lg-9 "> 
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <td>ID</td>
+                <td>{{ gamer.id }}</td>
+              </tr>
+              <tr>
+                <td>Username</td>
+                <td>{{ gamer.username }}</td>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td>{{ gamer.name }}</td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>{{ gamer.gender }}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td><a href="gamer.email">{{ gamer.email }}</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
+        </div>
+      </div>
+    </div>    
+  </div>

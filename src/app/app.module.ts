@@ -11,6 +11,8 @@ import { AddGamerComponent } from './gamer/add-gamer/add-gamer.component';
 import { SearchGamerComponent } from './gamer/search-gamer/search-gamer.component';
 import { GamerService } from './gamer/gamer.service';
 import { GamerListComponent } from './gamer/gamer-list/gamer-list.component';
+import { GamerDetailComponent } from './gamer/gamer-detail/gamer-detail.component';
+import { GamerResolver } from './gamer/gamer.resolver';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { GamerListComponent } from './gamer/gamer-list/gamer-list.component';
     ActionComponent,
     AddGamerComponent,
     SearchGamerComponent,
-    GamerListComponent
+    GamerListComponent,
+    GamerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { GamerListComponent } from './gamer/gamer-list/gamer-list.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [GamerService],
+  providers: [GamerService, GamerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

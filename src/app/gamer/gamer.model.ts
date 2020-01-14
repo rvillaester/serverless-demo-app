@@ -5,6 +5,7 @@ export class Gamer{
         public username: string,
         public name: string,
         public email: string,
-        public gender: string
+        public gender: string,
+        public base64EncodedAvatar: any
       ) {  }
 }
