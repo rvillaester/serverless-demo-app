@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 
 const ADD_GAMER = '';
 const SEARCH_GAMER = '';
-const SEARCH_GAMER_BY_ID = '';
 const DELETE_GAMER = '';
 const PUT_IMAGE = '';
 const GET_IMAGE = '';
@@ -27,6 +26,7 @@ export class GamerService{
 
     searchGamers(username: string, name: string){
         let params = new HttpParams()
+            .set('searchBy', 'criteria')
             .set('username', username)
             .set('name', name);
         this.httpClient.get(SEARCH_GAMER, {params})
@@ -40,13 +40,14 @@ export class GamerService{
 
     async searchGamerById(id: string): Promise<any>{
         let params = new HttpParams()
+            .set('searchBy', 'id')
             .set('id', id);
-        return await this.httpClient.get(SEARCH_GAMER_BY_ID, {params}).toPromise();
+        return await this.httpClient.get(SEARCH_GAMER, {params}).toPromise();
     }
 
     deleteGamer(index: number, gamer: Gamer){
         console.log(gamer);
-        this.httpClient.post<Gamer>(DELETE_GAMER, gamer.id)
+        this.httpClient.post<Gamer>(DELETE_GAMER, gamer)
             .subscribe(
                 (data: any) => {
                     this.gamers.splice(index, 1);
