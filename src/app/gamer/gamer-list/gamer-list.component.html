@@ -1,22 +1,20 @@
-<div class="container">
-  <h3 class="text-primary">Search results</h3>   
-  <table class="table table-striped">
-    <tr>
-      <th>Id</th>
-      <th>Username</th>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-    <tr class="active" *ngFor="let gamer of gamers; let i = index">
-      <td>{{ gamer.id }}</td>
-      <td>{{ gamer.username }}</td>
-      <td>{{ gamer.name  }}</td>
-      <td> 
-        <div class="btn-toolbar"> 
-          <button class="btn btn-primary" (click)="onViewDetails(gamer)">View</button> 
-          <button class="btn btn-danger" (click)="onDelete(i, gamer)">Delete</button> 
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>
+<h3 class="bg-secondary text-white text-center">Search results</h3> 
+<table class="table table-striped">
+  <tr>
+    <th>Id</th>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr class="active" *ngFor="let gamer of gamers; let i = index">
+    <td>{{ gamer.id }}</td>
+    <td>{{ gamer.username }}</td>
+    <td>{{ gamer.name  }}</td>
+    <td> 
+      <div class="btn-toolbar"> 
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-1" (click)="onViewDetails(gamer)">View</button> 
+        <button class="btn btn-outline-danger" (click)="onDelete(i, gamer)">Delete</button> 
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,11 +1,11 @@
 <div class="panel panel-info">
     <div class="panel-heading">
-      <h3 class="panel-title">Gamer Details</h3>
+      <h3 class="panel-title text-primary">Gamer Details</h3>
     </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-3 col-lg-3 " align="center"> 
-          <img alt="User Pic" [src]="gamer.base64EncodedAvatar" class="img-circle img-responsive">
+          <img alt="User Pic" [src]="gamer.base64EncodedAvatar" class="rounded-circle">
           <h6>Upload a different photo...</h6>
           <input type="file" class="text-center center-block file-upload" (change)="onImageChange($event)">
         </div>
@@ -34,7 +34,7 @@
               </tr>
             </tbody>
           </table>
-          <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
+          <a class="btn btn-outline-success my-2 my-sm-0" (click)="onCancel()">Cancel</a>
         </div>
       </div>
     </div>    

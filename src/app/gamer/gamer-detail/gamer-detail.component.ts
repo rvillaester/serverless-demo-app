@@ -35,7 +35,7 @@ export class GamerDetailComponent implements OnInit {
   }
 
   onCancel(){
-    this.router.navigate(['']);
+    this.router.navigate(['gamer', 'searchGamer']);
   }
 
   onImageChange(event: any){

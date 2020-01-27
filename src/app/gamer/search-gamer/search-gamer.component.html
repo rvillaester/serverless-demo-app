@@ -1,41 +1,39 @@
 <div class="container">
-    <h3 class="text-primary">Search Gamer</h3>
     <div class="row">
-        <div class="col-xs-12">
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                <div class="row">
-                    <div class="col-sm-5 form-group">
-                        <label for="username">Username</label>
-                        <input 
-                            type="text"
-                            id="username"
-                            class="form-control"
-                            name="username"
-                            ngModel>
-                    </div>
-                    
-                    <div class="col-sm-5 form-group">
-                        <label for="name">Name</label>
-                        <input 
-                            type="text"
-                            id="name"
-                            class="form-control"
-                            name="name"
-                            ngModel>
-                    </div>
-                </div>
-                    
-                <div class="row">
-                    <div class="col-xs-12">
-                        <button class="btn btn-success" type="submit">Search</button>
-                        <button class="btn btn-danger" type="button" (click)="onCancel()">Cancel</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <h3 class="text-primary">Search Gamers</h3>
     </div>
     <div class="row">
-        <div class="col-md-8" *ngIf="gamers.length !== 0">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="col-sm-5 form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text"
+                        id="username"
+                        class="form-control"
+                        name="username"
+                        ngModel>
+                </div>
+                
+                <div class="col-sm-5 form-group">
+                    <label for="name">Name</label>
+                    <input 
+                        type="text"
+                        id="name"
+                        class="form-control"
+                        name="name"
+                        ngModel>
+                </div>
+
+                <div class="col-sm-5 form-group">
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div *ngIf="gamers.length !== 0">
             <app-gamer-list [gamers]="gamers"></app-gamer-list>
         </div>
     </div>

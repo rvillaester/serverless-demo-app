@@ -31,7 +31,7 @@ export class SearchGamerComponent implements OnInit {
   }
 
   onCancel(){
-    this.router.navigate(['']);
+    this.router.navigate(['/gamer']);
   }
 
 }

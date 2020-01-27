@@ -1,0 +1,36 @@
+<div class="container">
+    <h3 class="text-primary">Feedback Form</h3>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group row">
+            <label for="continue" class="col-sm-2 col-form-label">Continue</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="continue" name="continue" placeholder="Continue Doing" ngModel></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="start" class="col-sm-2 col-form-label">Start</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="start" name="start" placeholder="Start Doing" ngModel></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="stop" class="col-sm-2 col-form-label">Stop</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="stop" name="stop" placeholder="Stop Doing" ngModel></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="other" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="other" name="other" placeholder="Other Comments" ngModel></textarea>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0 mr-1" (click)="onSubmit()">Submit</button>
+                <button type="button" class="btn btn-outline-danger my-2 my-sm-0" (click)="onCancel()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -33,7 +33,7 @@ export class GamerListComponent implements OnInit {
 
   onViewDetails(gamer: Gamer){
     console.log(gamer.id);
-    this.router.navigate(['view/' + gamer.id]);
+    this.router.navigate(['gamer', 'view', gamer.id]);
   }
 
 }

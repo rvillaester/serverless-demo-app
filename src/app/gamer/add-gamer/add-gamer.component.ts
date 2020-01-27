@@ -12,22 +12,33 @@ import { GamerService } from '../gamer.service';
 export class AddGamerComponent implements OnInit {
 
   private model: Gamer = null;
+  private form: NgForm = null;
 
   constructor(private route: ActivatedRoute,
     private router: Router, private gamerService: GamerService) { }
 
   ngOnInit() {
     this.model = new Gamer('', '', '', '', '', '');
+    this.gamerService.gamerAdded
+      .subscribe(
+        (data: any) => {
+          this.form.reset();
+          alert("Gamer is successfully added");
+        },
+        (error: any) => {
+          alert('Oppps something went wrong')
+        }
+      )
   }
 
   onSubmit(form: NgForm){
+    this.form = form;
     const value = form.value;
     this.model = new Gamer('', value.username, value.name, value.email, value.gender, '');
     this.gamerService.addGamer(this.model);
-    this.router.navigate(['']);
   }
 
   onCancel(){
-    this.router.navigate(['']);
+    this.router.navigate(['gamer']);
   }
 }

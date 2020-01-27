@@ -3,25 +3,37 @@ import { Gamer } from './gamer.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
-const ADD_GAMER = '';
-const SEARCH_GAMER = '';
-const DELETE_GAMER = '';
-const PUT_IMAGE = '';
-const GET_IMAGE = '';
+const ADD_GAMER = 'https://76ihi1bs0m.execute-api.ap-southeast-1.amazonaws.com/dev/add-gamer';
+const SEARCH_GAMER = 'https://76ihi1bs0m.execute-api.ap-southeast-1.amazonaws.com/dev/search-gamer';
+const DELETE_GAMER = 'https://76ihi1bs0m.execute-api.ap-southeast-1.amazonaws.com/dev/delete-gamer';
+const PUT_IMAGE = 'https://76ihi1bs0m.execute-api.ap-southeast-1.amazonaws.com/dev/put-avatar-to-S3';
+const GET_IMAGE = 'https://76ihi1bs0m.execute-api.ap-southeast-1.amazonaws.com/dev/get-avatar-from-S3';
 
 @Injectable()
 export class GamerService{
 
     private gamers: Gamer[] = [];
     gamersChanged = new Subject<Gamer[]>();
+    gamerAdded = new Subject<any>();
     gamerImageChanged = new Subject<string>();
 
     constructor(private httpClient: HttpClient){
 
     }
 
-    async addGamer(gamer: Gamer){
-        return await this.httpClient.post<Gamer>(ADD_GAMER, gamer).toPromise();
+    addGamer(gamer: Gamer){
+        // return await this.httpClient.post<Gamer>(ADD_GAMER, gamer).toPromise();
+
+        this.httpClient.post<Gamer>(ADD_GAMER, gamer)
+            .subscribe(
+                (data: any) => {
+                    this.gamerAdded.next(data);
+                },
+                (error: any) => {
+                    console.log(error);
+                    this.gamerAdded.error(error);
+                }
+            )
     }
 
     searchGamers(username: string, name: string){
