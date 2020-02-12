@@ -14,20 +14,19 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <div *ngIf="isAuthenticated()">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <!-- <span class="navbar-text">Welcome Name</span> -->
-                <a class="nav-link">Welcome Name</a>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="button" (click)="onLogout()">Logout</button>
-            </li>
-          </ul>
-      </div>
-      <div *ngIf="!isAuthenticated()">
+        <div *ngIf="isLoggedIn">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link">Welcome {{ name }}</a>
+              </li>
+              <li class="nav-item">
+                  <button class="btn btn-outline-danger my-2 my-sm-0" type="button" (click)="onLogout()">Logout</button>
+              </li>
+            </ul>
+        </div>
+        <div *ngIf="!isLoggedIn">
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="onLogin()">Login</button>
-      </div>
+        </div>
     </form>
   </div>
 </nav>

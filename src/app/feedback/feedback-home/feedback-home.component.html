@@ -1,5 +1,10 @@
 <div class="container">
     <div class="col-sm-12 controls btn-toolbar">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onWriteFeedback()">Write feedback</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="button" (click)="onWriteFeedback()">Write feedback</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="button" (click)="onRequiresAuth()">Requires Auth API</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="button" (click)="onPublicAPI()">Public API</button>
+    </div>
+    <div class="container">
+        <span>{{results}}</span>
     </div>
 </div>

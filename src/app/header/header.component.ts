@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
+import { Auth } from 'aws-amplify';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-header',
@@ -7,18 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  private name: String = ""
+  private isLoggedIn: boolean = false;
 
-  ngOnInit() {
+
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) { 
+    Auth.currentAuthenticatedUser().then(
+      (user => {
+        this.authService.loginSuccess(user.attributes.name, '');
+      })
+    );
   }
 
-  isAuthenticated(){
-    return false;
+  ngOnInit() {
+    this.authService.stateChange.subscribe
+    (
+      (data) => {
+        this.isLoggedIn = data.status;
+        this.name = data.user.name;
+      }
+    );
+    // this.user = Auth.currentAuthenticatedUser();
+    // this.user = this.authService.getCurrentAuthenticatedUser();
   }
 
   onLogin(){
-    const URL = "https://app-rvillaester.auth.ap-southeast-1.amazoncognito.com/login?response_type=code&client_id=1i0tfvtm79vht8iihvmbecgtng&redirect_uri=http://localhost:4200";
-    window.location.assign(URL);
+    this.router.navigate(["/signin"]);
+    // const URL = "https://app-rvillaester.auth.ap-southeast-1.amazoncognito.com/login?response_type=code&client_id=1i0tfvtm79vht8iihvmbecgtng&redirect_uri=http://localhost:4200";
+    // window.location.assign(URL);
   }
 
   // onLogin(){
@@ -37,7 +57,12 @@ export class HeaderComponent implements OnInit {
   // }
 
   onLogout(){
-
+    Auth.signOut().then(
+      (data => {
+        this.authService.logoutSuccess();
+      })
+    );
+    this.router.navigate(['']);
   }
 
 }
